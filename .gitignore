@@ -164,3 +164,4 @@ lib/model/outputs/
 data/raw/train.tar
 data/processed/train_data.csv
 models/catboost/
+.vscode/
