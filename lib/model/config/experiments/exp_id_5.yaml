@@ -1,0 +1,26 @@
+id: 5
+best_params_path: /home/kenny/avito_tech/reports/exp_results/exp_5/best_catboost_params.yaml
+cat_features:
+target: is_bad
+drop_cols:
+  - description
+  - title
+  - datetime_submitted
+  - category
+  - subcategory
+  - price
+  - region
+  - city
+  - has_email
+  - title_count_numbers
+  - title_len
+  - phone_operators
+  - messenger
+  - has_site
+text_features:
+  - filtered_text
+  - text
+  - filtered_numbers
+number_of_trials: 5
+output_results_path: /home/kenny/avito_tech/reports/exp_results/exp_5/results
+model_path: /home/kenny/avito_tech/models/catboost/catboost_classifier_exp_5.cbm

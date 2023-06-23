@@ -1,0 +1,6 @@
+model: catboost
+train_data_path: /home/kenny/avito_tech/data/processed/train_data.csv
+val_data_path: /home/kenny/avito_tech/data/processed/val_data.csv
+defaults:
+  - _self_
+  - experiments: exp_id_1
