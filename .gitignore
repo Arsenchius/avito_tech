@@ -158,10 +158,20 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
+### VisualStudioCode ###
+.vscode/*      # Maybe .vscode/**/* instead - see comments
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+**/.history
+
 notebooks/catboost_info/
 lib/model/catboost_info/
 lib/model/outputs/
 data/raw/train.tar
 data/processed/train_data.csv
 models/catboost/
-.vscode/
