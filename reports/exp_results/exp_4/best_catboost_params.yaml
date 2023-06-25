@@ -1,0 +1,7 @@
+bagging_temperature: 0.14037996106575967
+colsample_bylevel: 0.011425141820604712
+depth: 12
+iterations: 800
+l2_leaf_reg: 2
+learning_rate: 0.38616015820229477
+random_strength: 0.5860324714052635
