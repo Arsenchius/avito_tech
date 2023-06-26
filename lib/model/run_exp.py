@@ -121,7 +121,7 @@ def _dump_results(
         predicted_y = tmp.predict
         predicted_proba_y = tmp.predict_proba
         true_y = tmp.is_bad
-
+        # calulation each metric for each group
         roc_auc_category = roc_auc_score(true_y, predicted_proba_y)
         accuracy_category = accuracy_score(true_y, predicted_y)
         f1_category = f1_score(true_y, predicted_y)
@@ -177,12 +177,11 @@ def objective(
     df_val.drop(drop_cols, axis=1, inplace=True)
     params = {
         "eval_metric": "AUC",
-        "learning_rate": trial.suggest_float("learning_rate", 0.1, 0.5),
+        "learning_rate": trial.suggest_float("learning_rate", 0.1, 0.2),
         "l2_leaf_reg": trial.suggest_int("l2_leaf_reg", 1, 10),
-        "iterations": trial.suggest_int("iterations", 500, 1500, 100),
+        "iterations": trial.suggest_int("iterations", 800, 1500, 100),
         "random_strength": trial.suggest_float("random_strength", 1e-2, 1.0),
-        "colsample_bylevel": trial.suggest_float("colsample_bylevel", 0.01, 0.1),
-        "depth": trial.suggest_int("depth", 1, 12),
+        "depth": trial.suggest_int("depth", 6, 12),
         "bootstrap_type": "Bayesian",
         "bagging_temperature": trial.suggest_float("bagging_temperature", 0, 10),
     }
