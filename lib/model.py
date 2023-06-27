@@ -11,9 +11,7 @@ def load_model(model_path: str) -> CatBoostClassifier:
     return CatBoostClassifier().load_model(model_path)
 
 
-def task1(df: pd.DataFrame) -> pd.DataFrame:
-    model_path = "/app/models/catboost_base_classifier.cbm"
-    path_to_stop_words = "/app/data/raw/stopwords.txt"
+def task1(df: pd.DataFrame, model_path: str, path_to_stop_words:str) -> pd.DataFrame:
     df = preprocess_data(df, path_to_stop_words)
 
     model = load_model(model_path)

@@ -10,10 +10,12 @@ from model import task1, task2
 
 class Test:
     train_csv = "train.csv"
-    val_csv = "val.csv"
+    val_csv = "raw/val.csv"
     test_csv = "test_data.csv"
     task1_prediction = "task1_prediction.csv"
     task2_prediction = "task2_prediction.csv"
+    model_name = "catboost_base_classifier.cbm"
+    stop_words = "raw/stopwords.txt"
 
     def __init__(self, debug: bool = True):
         self.debug = debug
@@ -21,6 +23,7 @@ class Test:
         self.data_dir = os.getenv("DATA_ROOT")
         self.test_data_dir = os.getenv("TEST_DATA_ROOT")
         self.user = os.getenv("USER")
+        self.models = os.getenv("MODELS")
 
     def _get_logger(self):
         logger = logging.getLogger()
@@ -148,7 +151,9 @@ class Test:
 
         task1_prediction = pd.DataFrame(columns=["index", "prediction"])
         task1_prediction["index"] = test.index
-        task1_prediction["prediction"] = task1(test)
+        model_path = os.path.join(self.models, self.model_name)
+        stop_words_path = os.path.join(self.data_dir, self.stop_words)
+        task1_prediction["prediction"] = task1(test, model_path, stop_words_path)
 
         task2_prediction = pd.DataFrame(columns=["index", "start", "finish"])
         task2_prediction["index"] = test.index
