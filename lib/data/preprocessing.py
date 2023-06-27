@@ -61,7 +61,6 @@ def get_stopwords(path_to_stopwords: str) -> List[str]:
         list of stopwords
     """
     stopwords = []
-    # при запуске через докер нужно будет поменять путь на app/data/raw/stopwords.txt
     with open(
         path_to_stopwords,
         encoding="utf-8",
@@ -105,7 +104,7 @@ def preprocess_text(text: str, stemmer, path_to_stopwords: str) -> str:
     return text
 
 
-def create_features(df: DataFrame) -> DataFrame:
+def create_features(df: pd.DataFrame) -> pd.DataFrame:
     """
     Create some new features
 
@@ -143,7 +142,7 @@ def create_features(df: DataFrame) -> DataFrame:
     return df
 
 
-def preprocess_data(df: DataFrame, path_to_stopwords: str) -> DataFrame:
+def preprocess_data(df: pd.DataFrame, path_to_stopwords: str) -> pd.DataFrame:
     """
     Preprocessing of all data
 
@@ -176,7 +175,7 @@ def preprocess_data(df: DataFrame, path_to_stopwords: str) -> DataFrame:
     return df
 
 
-def _run_part(df: DataFrame, output_file_path: str, path_to_stopwords: str) -> None:
+def _run_part(df: pd.DataFrame, output_file_path: str, path_to_stopwords: str) -> None:
     """
     Partial data processing
 
