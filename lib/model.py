@@ -11,17 +11,13 @@ def load_model(model_path: str) -> CatBoostClassifier:
     return CatBoostClassifier().load_model(model_path)
 
 
-def task1(df: pd.DataFrame, model_path: str, path_to_stop_words:str) -> pd.DataFrame:
+def task1(df: pd.DataFrame, model_path: str, path_to_stop_words: str) -> pd.DataFrame:
     df = preprocess_data(df, path_to_stop_words)
 
     model = load_model(model_path)
     df = df[model.feature_names_]
 
     predictions = model.predict_proba(df)[:, 1]
-    # indices = range(len(predictions))
-    # predictions = pd.DataFrame(
-    #     {"index": range(len(predictions)), "prediction": predictions}
-    # )
     return predictions
 
 
