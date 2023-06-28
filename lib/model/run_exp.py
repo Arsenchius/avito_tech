@@ -143,7 +143,7 @@ def _dump_results(
     roc_auc = roc_auc_score(df[target], df["predict_proba"])
     f1 = f1_score(df[target], df["predict"])
     accuracy = accuracy_score(df[target], df["predict"])
-    table.add_row([roc_auc, f1, accuracy])
+    table.add_row([roc_auc, accuracy, f1])
 
     with open(path_to_results, "w") as f:
         f.write("Category table:\n")

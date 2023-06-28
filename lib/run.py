@@ -14,7 +14,7 @@ class Test:
     test_csv = "test_data.csv"
     task1_prediction = "task1_prediction.csv"
     task2_prediction = "task2_prediction.csv"
-    model_name = "catboost_base_classifier.cbm"
+    model_name = "catboost_classifier_exp_3.cbm"
     stop_words = "raw/stopwords.txt"
 
     def __init__(self, debug: bool = True):
